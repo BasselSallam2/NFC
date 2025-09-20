@@ -187,6 +187,42 @@ class BusinessCard {
 
     return `https://pay.google.com/gp/v/save/${token}`;
   }
+
+  async updateCard(issuerId, objectSuffix) {
+    let response;
+
+    try {
+      response = await this.client.genericobject.get({
+        resourceId: `${issuerId}.${objectSuffix}`
+      });
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
+        console.log(`Object ${issuerId}.${objectSuffix} not found!`);
+        return `${issuerId}.${objectSuffix}`;
+      } else {
+    
+        console.log(err);
+        return `${issuerId}.${objectSuffix}`;
+      }
+    }
+
+    let updatedObject = response.data;
+    updatedObject.textModulesData[0].body = "Bassel Updated";
+
+    console.log(updatedObject);
+
+     response = await this.client.genericobject.update({
+      resourceId: `${issuerId}.${objectSuffix}`,
+      requestBody: updatedObject
+    });
+
+     console.log('Object update response');
+    console.log(response);
+
+    return `${issuerId}.${objectSuffix}`;
+
+
+  }
 }
 
 module.exports = {BusinessCard};

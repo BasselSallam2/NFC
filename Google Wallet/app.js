@@ -11,7 +11,7 @@ async function main() {
   const class_suffix = (process.env.WALLET_CLASS_SUFFIX || 'your-class-suffix') + demo.constructor.name;
   const object_suffix = (process.env.WALLET_OBJECT_SUFFIX || 'your-object-suffix') + demo.constructor.name;
 
-demo.createJwtNewObjects(issuer_id, class_suffix, object_suffix);
+demo.updateCard(issuer_id, object_suffix);
 
 
 
