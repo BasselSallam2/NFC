@@ -1,10 +1,4 @@
-const { DemoEventTicket } = require('./demo-eventticket.js');
-const { DemoFlight } = require('./demo-flight.js');
-const { DemoGeneric } = require('./demo-generic.js');
-const { DemoGiftCard } = require('./demo-giftcard.js');
-const { DemoLoyalty } = require('./demo-loyalty.js');
-const { DemoOffer } = require('./demo-offer.js');
-const { DemoTransit } = require('./demo-transit.js');
+
 const {BusinessCard} = require ('./card.js');
 
 async function main() {
